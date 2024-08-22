@@ -1,0 +1,39 @@
+.inbox-container {
+  flex: 5;
+}
+
+.inbox-inner {
+  width: 90%;
+  background-color: #f4f4f4;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.inbox-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+  border-bottom: 2px solid #777;
+}
+
+.inbox-item-icon {
+  flex: 1;
+}
+
+.inbox-item-subject {
+  flex: 2;
+
+}
+
+.inbox-item-body {
+  flex: 5;
+
+}
+
+.inbox-item-date {
+  flex: 2;
+
+}
