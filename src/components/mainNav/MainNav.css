@@ -1,0 +1,28 @@
+.main-nav-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 15px;
+  gap: 10px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 5px;
+  width: 100%;
+  text-decoration: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  color: #000;
+}
+
+.nav-item.active {
+  background-color: rgb(54, 189, 186);
+  text-decoration: none;
+  color: #fff;
+}
+
+.item-title {
+}

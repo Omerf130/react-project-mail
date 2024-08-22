@@ -6,9 +6,9 @@ export const messages = [
     isRead: false,
     isStarred: false,
     sentAt: 1551133930594,
-    removedAt: null,
+    removedAt: 1553217535698,
     from: "momo@momo.com",
-    to: "user@appsus.com",
+    to: "omer@gmail.com",
   },
   {
     id: "e102",
@@ -19,7 +19,7 @@ export const messages = [
     sentAt: 1551220330594,
     removedAt: null,
     from: "manager@company.com",
-    to: "user@appsus.com",
+    to: "omer@gmail.com",
   },
   {
     id: "e103",
@@ -30,7 +30,7 @@ export const messages = [
     sentAt: 1551306730594,
     removedAt: null,
     from: "teamlead@company.com",
-    to: "user@appsus.com",
+    to: "omer@gmail.com",
   },
   {
     id: "e104",
@@ -39,8 +39,8 @@ export const messages = [
     isRead: true,
     isStarred: false,
     sentAt: 1551393130594,
-    removedAt: null,
-    from: "user@appsus.com",
+    removedAt: 1553217532187,
+    from: "omer@gmail.com",
     to: "you@example.com",
   },
   {
@@ -51,7 +51,7 @@ export const messages = [
     isStarred: false,
     sentAt: 1551479530594,
     removedAt: null,
-    from: "user@appsus.com",
+    from: "omer@gmail.com",
     to: "client@company.com",
   },
   {
@@ -62,7 +62,7 @@ export const messages = [
     isStarred: true,
     sentAt: 1551565930594,
     removedAt: null,
-    from: "user@appsus.com",
+    from: "omer@gmail.com",
     to: "employee@company.com",
   },
   {
@@ -74,7 +74,7 @@ export const messages = [
     sentAt: 1551652330594,
     removedAt: null,
     from: "marketing@company.com",
-    to: "user@appsus.com",
+    to: "omer@gmail.com",
   },
   {
     id: "e108",
@@ -85,7 +85,7 @@ export const messages = [
     sentAt: 1551738730594,
     removedAt: null,
     from: "support@company.com",
-    to: "user@appsus.com",
+    to: "omer@gmail.com",
   },
   {
     id: "e109",
@@ -94,8 +94,8 @@ export const messages = [
     isRead: true,
     isStarred: false,
     sentAt: 1551825130594,
-    removedAt: null,
-    from: "user@appsus.com",
+    removedAt: 1553217536789,
+    from: "omer@gmail.com",
     to: "manager@company.com",
   },
   {
@@ -107,7 +107,7 @@ export const messages = [
     sentAt: 1551911530594,
     removedAt: null,
     from: "it@company.com",
-    to: "user@appsus.com",
+    to: "omer@gmail.com",
   },
   {
     id: "e111",
@@ -116,8 +116,8 @@ export const messages = [
     isRead: true,
     isStarred: false,
     sentAt: 1551997930594,
-    removedAt: null,
-    from: "user@appsus.com",
+    removedAt: 1553217533456,
+    from: "omer@gmail.com",
     to: "newhire@company.com",
   },
   {
@@ -128,7 +128,7 @@ export const messages = [
     isStarred: false,
     sentAt: 1552084330594,
     removedAt: null,
-    from: "projectmanager@company.com",
+    from: "omer@gmail.com",
     to: "team@company.com",
   },
   {
@@ -140,7 +140,7 @@ export const messages = [
     sentAt: 1552170730594,
     removedAt: null,
     from: "events@company.com",
-    to: "contacts@company.com",
+    to: "omer@gmail.com",
   },
   {
     id: "e114",
@@ -150,7 +150,7 @@ export const messages = [
     isStarred: false,
     sentAt: 1552257130594,
     removedAt: null,
-    from: "support@company.com",
+    from: "omer@gmail.com",
     to: "all@company.com",
   },
   {
@@ -162,7 +162,7 @@ export const messages = [
     sentAt: 1552343530594,
     removedAt: null,
     from: "appointments@company.com",
-    to: "client@company.com",
+    to: "omer@gmail.com",
   },
   {
     id: "e116",
@@ -172,7 +172,7 @@ export const messages = [
     isStarred: true,
     sentAt: 1552429930594,
     removedAt: null,
-    from: "research@company.com",
+    from: "omer@gmail.com",
     to: "customers@company.com",
   },
   {
@@ -183,7 +183,7 @@ export const messages = [
     isStarred: false,
     sentAt: 1552516330594,
     removedAt: null,
-    from: "hr@company.com",
+    from: "omer@gmail.com",
     to: "all@company.com",
   },
   {
@@ -195,7 +195,7 @@ export const messages = [
     sentAt: 1552602730594,
     removedAt: null,
     from: "policy@company.com",
-    to: "employees@company.com",
+    to: "omer@gmail.com",
   },
   {
     id: "e119",
@@ -205,7 +205,7 @@ export const messages = [
     isStarred: false,
     sentAt: 1552689130594,
     removedAt: null,
-    from: "recruitment@company.com",
+    from: "omer@gmail.com",
     to: "applicant@company.com",
   },
   {
@@ -217,7 +217,7 @@ export const messages = [
     sentAt: 1552775530594,
     removedAt: null,
     from: "admin@company.com",
-    to: "user@company.com",
+    to: "omer@gmail.com",
   },
   {
     id: "e121",
@@ -227,7 +227,7 @@ export const messages = [
     isStarred: true,
     sentAt: 1552861930594,
     removedAt: null,
-    from: "support@company.com",
+    from: "omer@gmail.com",
     to: "all@company.com",
   },
   {
@@ -239,7 +239,7 @@ export const messages = [
     sentAt: 1552948330594,
     removedAt: null,
     from: "security@company.com",
-    to: "employees@company.com",
+    to: "omer@gmail.com",
   },
   {
     id: "e123",
@@ -250,7 +250,7 @@ export const messages = [
     sentAt: 1553034730594,
     removedAt: null,
     from: "hr@company.com",
-    to: "employee@company.com",
+    to: "omer@gmail.com",
   },
   {
     id: "e124",
@@ -260,7 +260,7 @@ export const messages = [
     isStarred: true,
     sentAt: 1553121130594,
     removedAt: null,
-    from: "webinars@company.com",
+    from: "omer@gmail.com",
     to: "contacts@company.com",
   },
   {
@@ -272,11 +272,11 @@ export const messages = [
     sentAt: 1553207530594,
     removedAt: null,
     from: "sales@company.com",
-    to: "customer@company.com",
+    to: "omer@gmail.com",
   },
 ];
 
 export const loggedinUser = {
-  email: "user@appsus.com",
+  email: "omer@gmail.com",
   fullname: "Mahatma Appsus",
 };

@@ -2,6 +2,8 @@ import React from 'react'
 
 export const Home = () => {
   return (
-    <div>Home</div>
+    <div className='home-container'>
+      <h1>Welcome to my email app</h1>
+    </div>
   )
 }
