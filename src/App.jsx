@@ -3,11 +3,11 @@ import './App.css'
 import { MainNav } from './components/mainNav/MainNav';
 import { TopBar } from './components/topBar/TopBar';
 
-function App() {
+function App({setSearchInput}) {
 
   return (
     <div className='app'>
-      <TopBar/>
+      <TopBar setSearchInput={setSearchInput}/>
       <div className='main-container'>
         <MainNav/>
         <Outlet/>

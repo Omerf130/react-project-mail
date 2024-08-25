@@ -1,18 +1,28 @@
-import React from 'react'
-import { loggedinUser } from '../../consts'
+import React, { useEffect } from "react";
 import "./sent.css";
-import SentEmailItem from './components/SentEmailItem';
+import SentEmailItem from "./components/SentEmailItem";
+import { storageService } from "../../services/async-storage.service";
+import { useLocation } from "react-router-dom";
 
-export const Sent = ({emails}) => {
-  const sentMsg = emails.filter((msg) => msg.to === loggedinUser.email)
-  
+export const Sent = ({ emails, setEmails, searchInput }) => {
+  const location = useLocation()
+
+  useEffect(() => {
+    getData();
+  }, [searchInput]);
+
+  const getData = async () => {
+    const data = await storageService.query("emails", 200, { status: location.pathname, text:searchInput });
+    setEmails(data);
+  };
+
   return (
     <div className="sent-container">
       <div className="sent-inner">
-        {sentMsg.map((msg) => (
+        {emails.map((msg) => (
           <SentEmailItem key={msg.id} item={msg} />
         ))}
       </div>
     </div>
-  )
-}
+  );
+};

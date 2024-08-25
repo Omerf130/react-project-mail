@@ -22,3 +22,11 @@ function loadFromStorage(key, defaultValue = null) {
     var value = localStorage[key] || defaultValue;
     return JSON.parse(value);
 }
+
+export function handleGetDate(timestamp) {
+    const date = new Date(timestamp);
+    const day = date.getDate();
+    const month = date.getMonth();
+    const year = date.getFullYear();
+    return `${month}/${day}/${year}`;
+}

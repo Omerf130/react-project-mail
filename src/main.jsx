@@ -17,16 +17,16 @@ import About from './pages/about/About.jsx';
 
 export const Main = () => {
   const [emails, setEmails] = useState(messages);
+  const [searchInput,setSearchInput] = useState("");
 
   useEffect(() => {
     save("emails", messages);
   },[])
 
-
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <App/>,
+      element: <App setSearchInput={setSearchInput}/>,
       children:[
         {
           path: "/",
@@ -34,19 +34,19 @@ export const Main = () => {
         },
         {
           path: "/inbox",
-          element: <Inbox emails={emails}/>,
+          element: <Inbox emails={emails} setEmails={setEmails} searchInput={searchInput}/>,
         },
         {
           path: "/sent",
-          element: <Sent emails={emails}/>,
+          element: <Sent emails={emails} setEmails={setEmails} searchInput={searchInput}/>,
         },
         {
           path: "/starred",
-          element: <Starred emails={emails}/>,
+          element: <Starred emails={emails} setEmails={setEmails} searchInput={searchInput}/>,
         },
         {
           path: "/trash",
-          element: <Trash emails={emails}/>,
+          element: <Trash emails={emails} setEmails={setEmails} searchInput={searchInput}/>,
         },
         {
           path: "/about",
