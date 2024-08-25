@@ -17,6 +17,16 @@
   gap: 10px;
   padding: 8px 0;
   border-bottom: 2px solid #777;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.inbox-item:hover {
+  background-color: #77777726;
+}
+
+.inbox-item.read {
+  font-weight: bold;
 }
 
 .inbox-item-icon {
@@ -25,15 +35,16 @@
 
 .inbox-item-subject {
   flex: 2;
-
+  font-size: 18px;
 }
 
 .inbox-item-body {
   flex: 5;
+  font-size: 16px;
 
 }
 
 .inbox-item-date {
   flex: 2;
-
+  text-align: center;
 }

@@ -3,9 +3,10 @@ import { FaStar } from "react-icons/fa";
 
 
 const StarredItem = ({item}) => {
+  const classes = `starred-item ${item.isRead ? "read" : ""}`
 
   return (
-    <div className="starred-item">
+    <div className={classes}>
       <FaStar className="starred-item-icon" />
       <div className="starred-item-subject">{item.subject}</div>
       <div className="starred-item-body">{item.body}</div>

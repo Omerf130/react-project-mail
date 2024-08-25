@@ -17,6 +17,16 @@
   gap: 10px;
   padding: 8px 0;
   border-bottom: 2px solid #777;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.sent-item:hover {
+  background-color: #77777726;
+}
+
+.sent-item.read {
+  font-weight: bold;
 }
 
 .sent-item-icon {
@@ -25,12 +35,15 @@
 
 .sent-item-subject {
   flex: 2;
+  font-size: 18px;
 }
 
 .sent-item-body {
   flex: 5;
+  font-size: 16px;
 }
 
 .sent-item-date {
   flex: 2;
+  text-align: center;
 }
