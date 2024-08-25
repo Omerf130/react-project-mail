@@ -1,7 +1,7 @@
 import React from "react";
 import "./MainNav.css";
 import { MdOutlinePresentToAll, MdMoveToInbox } from "react-icons/md";
-import { FaTrash, FaStar } from "react-icons/fa";
+import { FaTrash, FaStar, FaInfoCircle,FaHome } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 
 export const MainNav = () => {
@@ -43,6 +43,24 @@ export const MainNav = () => {
       >
          <FaTrash />
          <div className="item-title">Trash</div>
+      </NavLink>
+      <NavLink
+        to="/"
+        className={({ isActive, isPending }) =>
+          isPending ? " nav-item pending" : isActive ? "nav-item active" : "nav-item"
+        }
+      >
+         <FaHome />
+         <div className="item-title">Home</div>
+      </NavLink>
+      <NavLink
+        to="/about"
+        className={({ isActive, isPending }) =>
+          isPending ? " nav-item pending" : isActive ? "nav-item active" : "nav-item"
+        }
+      >
+         <FaInfoCircle />
+         <div className="item-title">About</div>
       </NavLink>
      
     </div>

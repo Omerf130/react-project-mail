@@ -1,10 +1,10 @@
 import React from "react";
-import { messages, loggedinUser } from "../../consts";
+import { loggedinUser } from "../../consts";
 import InboxItem from "./components/InboxItem";
 import "./Inbox.css";
 
-export const Inbox = () => {
-  const inboxMessages = messages.filter(
+export const Inbox = ({emails}) => {
+  const inboxMessages = emails.filter(
     (message) => message.to === loggedinUser.email
   );
 

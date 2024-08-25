@@ -1,0 +1,36 @@
+.starred-container {
+  flex: 5;
+}
+
+.starred-inner {
+  width: 90%;
+  background-color: #f4f4f4;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.starred-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+  border-bottom: 2px solid #777;
+}
+
+.starred-item-icon {
+  flex: 1;
+}
+
+.starred-item-subject {
+  flex: 2;
+}
+
+.starred-item-body {
+  flex: 5;
+}
+
+.starred-item-date {
+  flex: 2;
+}

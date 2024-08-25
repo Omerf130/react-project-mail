@@ -1,16 +1,18 @@
 import React from 'react'
-import { messages, loggedinUser } from '../../consts'
+import { loggedinUser } from '../../consts'
+import "./sent.css";
+import SentEmailItem from './components/SentEmailItem';
 
-export const Sent = () => {
-  const sentMsg = messages.filter((msg) => msg.from === loggedinUser.email)
+export const Sent = ({emails}) => {
+  const sentMsg = emails.filter((msg) => msg.to === loggedinUser.email)
   
   return (
-    <div className='sent-messages'>
-      {sentMsg.map(message => (
-        <div key={message.id} className='message-item'>
-          {message.subject}
-        </div>
-      ))}
+    <div className="sent-container">
+      <div className="sent-inner">
+        {sentMsg.map((msg) => (
+          <SentEmailItem key={msg.id} item={msg} />
+        ))}
+      </div>
     </div>
   )
 }

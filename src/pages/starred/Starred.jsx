@@ -1,16 +1,17 @@
-import React from 'react'
-import { messages, loggedinUser } from '../../consts'
+import React from "react";
+import StarredItem from "./components/StarredItem";
+import "./Starred.css";
 
-export const Starred = () => {
-  const starredMsg = messages.filter((msg) => msg.isStarred)
-  console.log(starredMsg)
+export const Starred = ({ emails }) => {
+  const starredMsg = emails.filter((msg) => msg.isStarred);
+
   return (
-    <div className='starred-container'>
-      {starredMsg.map(message =>(
-        <div className='starred-item' key={message.id}>
-          {message.subject}
-        </div>
-      ))}
+    <div className="starred-container">
+      <div className="starred-inner">
+        {starredMsg.map((msg) => (
+          <StarredItem key={msg.id} item={msg} />
+        ))}
+      </div>
     </div>
-  )
-}
+  );
+};

@@ -1,15 +1,17 @@
-import React from 'react'
-import { messages } from '../../consts'
+import React from "react";
+import TrashItem from "./components/TrashItem";
+import "./Trash.css";
 
-export const Trash = () => {
-  const trashMsg = messages.filter((message) => message.removedAt)
+export const Trash = ({ emails }) => {
+  const trashMsg = emails.filter((msg) => msg.removedAt);
+
   return (
-    <div className='trash-container'>
-      {trashMsg.map((message) => (
-         <div key={message.id} className='trash-item'>
-          {message.subject}
-         </div>
-      ))}
+    <div className="trash-container">
+      <div className="trash-inner">
+        {trashMsg.map((msg) => (
+          <TrashItem key={msg.id} item={msg} />
+        ))}
+      </div>
     </div>
-  )
-}
+  );
+};
