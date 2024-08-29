@@ -14,6 +14,7 @@ import { Trash } from './pages/trash/Trash.jsx';
 import { messages } from './consts.js';
 import { save } from './services/async-storage.service.js';
 import About from './pages/about/About.jsx';
+import EmailPreview from './pages/emailPreview/emailPreview.jsx';
 
 export const Main = () => {
   const [emails, setEmails] = useState(messages);
@@ -49,6 +50,10 @@ export const Main = () => {
           element: <Trash emails={emails} setEmails={setEmails} searchInput={searchInput}/>,
         },
         {
+          path: "/react-project-mail/preview/:id",
+          element: <EmailPreview />,
+        },
+        {
           path: "/react-project-mail/about",
           element: <About/>,
         },
@@ -58,8 +63,6 @@ export const Main = () => {
 
   return   <RouterProvider router={router} />
 }
-
-
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>

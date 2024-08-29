@@ -15,8 +15,12 @@ export const storageService = {
 
 function query(entityType, delay = 200, filterBy) {
   const entities = JSON.parse(localStorage.getItem(entityType)) || [];
-
   let updatedEntities = [];
+  
+  if(!filterBy){
+    updatedEntities = [...entities];
+    return new Promise((resolve) => setTimeout(() => resolve(updatedEntities), delay));
+  }
   
   if(filterBy.status === "/react-project-mail/inbox") {
     updatedEntities = [...entities].filter((message) => message.to === loggedinUser.email && message.subject.toLowerCase().includes(filterBy.text));

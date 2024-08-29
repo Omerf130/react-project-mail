@@ -1,0 +1,30 @@
+.current-email-container {
+  height: fit-content;
+  background-color: #f4f4f4;
+  padding: 15px 10px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 65vw;
+}
+
+.emails-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: #999;
+  margin-bottom: 15px;
+}
+
+.email-date {
+  font-size: 16px;
+}
+
+.email-subject {
+  font-size: 22px;
+}
+
+.email-subject span {
+  font-weight: bold;
+}

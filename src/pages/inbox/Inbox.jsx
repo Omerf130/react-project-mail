@@ -7,8 +7,6 @@ import { useLocation } from "react-router-dom";
 export const Inbox = ({emails, setEmails, searchInput}) => {
   const location = useLocation()
 
-  console.log(location.pathname)
-
   useEffect(() => {
     getData()
   },[searchInput])
@@ -17,12 +15,14 @@ export const Inbox = ({emails, setEmails, searchInput}) => {
     const data = await storageService.query("emails",200,{status:location.pathname, text: searchInput});
     setEmails(data);
   }
+
+  console.log(emails)
   
   return (
     <div className="inbox-container">
       <div className="inbox-inner">
         {emails.map((message) => (
-          <InboxItem key={message.id} item={message} />
+          <InboxItem key={message.id} item={message} setEmails={setEmails}/>
         ))}
       </div>
     </div>
