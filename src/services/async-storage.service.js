@@ -18,13 +18,13 @@ function query(entityType, delay = 200, filterBy) {
 
   let updatedEntities = [];
   
-  if(filterBy.status === "/inbox") {
+  if(filterBy.status === "/react-project-mail/inbox") {
     updatedEntities = [...entities].filter((message) => message.to === loggedinUser.email && message.subject.toLowerCase().includes(filterBy.text));
-  }else if(filterBy.status === "/sent") {
+  }else if(filterBy.status === "/react-project-mail/sent") {
     updatedEntities = [...entities].filter((message) => message.from === loggedinUser.email && message.subject.toLowerCase().includes(filterBy.text));
-  }else if(filterBy.status === "/starred") {
+  }else if(filterBy.status === "/react-project-mail/starred") {
     updatedEntities = [...entities].filter((message) => message.isStarred && message.subject.toLowerCase().includes(filterBy.text));
-  }else if(filterBy.status === "/trash") {
+  }else if(filterBy.status === "/react-project-mail/trash") {
     updatedEntities = [...entities].filter((message) => message.removedAt && message.subject.toLowerCase().includes(filterBy.text));
   }
 
