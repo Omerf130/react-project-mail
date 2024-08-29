@@ -2,6 +2,7 @@
   "name": "react-day-3",
   "private": true,
   "version": "0.0.0",
+  "homepage": "https://omerf130.github.io/react-project-mail/",
   "type": "module",
   "scripts": {
     "start": "vite",

@@ -25,31 +25,31 @@ export const Main = () => {
 
   const router = createBrowserRouter([
     {
-      path: "/",
+      path: "/react-project-mail/",
       element: <App setSearchInput={setSearchInput}/>,
       children:[
         {
-          path: "/",
+          path: "/react-project-mail/",
           element: <Home/>,
         },
         {
-          path: "/inbox",
+          path: "/react-project-mail/inbox",
           element: <Inbox emails={emails} setEmails={setEmails} searchInput={searchInput}/>,
         },
         {
-          path: "/sent",
+          path: "/react-project-mail/sent",
           element: <Sent emails={emails} setEmails={setEmails} searchInput={searchInput}/>,
         },
         {
-          path: "/starred",
+          path: "/react-project-mail/starred",
           element: <Starred emails={emails} setEmails={setEmails} searchInput={searchInput}/>,
         },
         {
-          path: "/trash",
+          path: "/react-project-mail/trash",
           element: <Trash emails={emails} setEmails={setEmails} searchInput={searchInput}/>,
         },
         {
-          path: "/about",
+          path: "/react-project-mail/about",
           element: <About/>,
         },
       ]

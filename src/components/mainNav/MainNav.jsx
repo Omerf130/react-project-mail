@@ -9,7 +9,7 @@ export const MainNav = () => {
   return (
     <div className="main-nav-container">
       <NavLink
-        to="/inbox"
+        to="/react-project-mail/inbox"
         className={({ isActive, isPending }) =>
           isPending ? " nav-item pending" : isActive ? "nav-item active" : "nav-item"
         }
@@ -18,7 +18,7 @@ export const MainNav = () => {
         <div className="item-title">Inbox</div>
       </NavLink>
       <NavLink
-        to="/sent"
+        to="/react-project-mail/sent"
         className={({ isActive, isPending }) =>
           isPending ? " nav-item pending" : isActive ? "nav-item active" : "nav-item"
         }
@@ -27,7 +27,7 @@ export const MainNav = () => {
          <div className="item-title">Sent</div>
       </NavLink>
       <NavLink
-        to="/starred"
+        to="/react-project-mail/starred"
         className={({ isActive, isPending }) =>
           isPending ? " nav-item pending" : isActive ? "nav-item active" : "nav-item"
         }
@@ -36,7 +36,7 @@ export const MainNav = () => {
           <div className="item-title">Starred</div>
       </NavLink>
       <NavLink
-        to="/trash"
+        to="/react-project-mail/trash"
         className={({ isActive, isPending }) =>
           isPending ? " nav-item pending" : isActive ? "nav-item active" : "nav-item"
         }
@@ -45,7 +45,7 @@ export const MainNav = () => {
          <div className="item-title">Trash</div>
       </NavLink>
       <NavLink
-        to="/"
+        to="/react-project-mail/"
         className={({ isActive, isPending }) =>
           isPending ? " nav-item pending" : isActive ? "nav-item active" : "nav-item"
         }
@@ -54,7 +54,7 @@ export const MainNav = () => {
          <div className="item-title">Home</div>
       </NavLink>
       <NavLink
-        to="/about"
+        to="/react-project-mail/about"
         className={({ isActive, isPending }) =>
           isPending ? " nav-item pending" : isActive ? "nav-item active" : "nav-item"
         }
