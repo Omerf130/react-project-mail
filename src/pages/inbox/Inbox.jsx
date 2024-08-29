@@ -14,6 +14,7 @@ export const Inbox = ({emails, setEmails, searchInput}) => {
   const getData = async () => {
     const data = await storageService.query("emails",200,{status:location.pathname, text: searchInput});
     setEmails(data);
+    
   }
 
   return (
