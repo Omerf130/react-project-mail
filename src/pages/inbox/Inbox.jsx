@@ -16,8 +16,6 @@ export const Inbox = ({emails, setEmails, searchInput}) => {
     setEmails(data);
   }
 
-  console.log(emails)
-  
   return (
     <div className="inbox-container">
       <div className="inbox-inner">
