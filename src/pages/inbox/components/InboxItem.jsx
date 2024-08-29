@@ -1,6 +1,6 @@
 import React from "react";
-import { FaStar, FaTrash } from "react-icons/fa";
-import { GoRead } from "react-icons/go";
+import { FaStar, /* FaTrash */ } from "react-icons/fa";
+// import { GoRead } from "react-icons/go";
 import { handleGetDate } from "../../../services/util.service";
 import { useLocation, useNavigate } from "react-router-dom";
 import { storageService } from "../../../services/async-storage.service";
@@ -22,10 +22,10 @@ const InboxItem = ({ item, setEmails }) => {
       <div className="inbox-item-subject">{item.subject}</div>
       <div className="inbox-item-body">{item.body}</div>
       <div className="inbox-item-date">{handleGetDate(item.sentAt)}</div>
-      <div className="inbox-btns-wrapper">
+      {/* <div className="inbox-btns-wrapper">
         <FaTrash onClick={handleEmailDelete}/>
         <GoRead onClick={() => navigate(`/react-project-mail/preview/${item.id}`)}/>
-      </div>
+      </div> */}
     </div>
   );
 };

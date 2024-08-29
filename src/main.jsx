@@ -49,10 +49,10 @@ export const Main = () => {
           path: "/react-project-mail/trash",
           element: <Trash emails={emails} setEmails={setEmails} searchInput={searchInput}/>,
         },
-        {
-          path: "/react-project-mail/preview/:id",
-          element: <EmailPreview />,
-        },
+        // {
+        //   path: "/react-project-mail/preview/:id",
+        //   element: <EmailPreview />,
+        // },
         {
           path: "/react-project-mail/about",
           element: <About/>,
