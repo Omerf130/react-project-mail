@@ -47,3 +47,19 @@
   flex: 2;
   text-align: center;
 }
+
+.sent-btns-wrapper {
+  display: none;
+  flex: 2;
+  justify-content: center;
+  gap: 10px;
+}
+
+.sent-item:hover {
+  .sent-item-date {
+    display: none;
+  }
+  .sent-btns-wrapper {
+    display: flex;
+  }
+}

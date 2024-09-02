@@ -4,7 +4,7 @@ import "./Inbox.css";
 import { storageService } from "../../services/async-storage.service";
 import { useLocation } from "react-router-dom";
 
-export const Inbox = ({emails, setEmails, searchInput}) => {
+export const Inbox = ({emails, setEmails, searchInput, handleToggleIsRead}) => {
   const location = useLocation()
   useEffect(() => {
     getData()
@@ -19,7 +19,7 @@ export const Inbox = ({emails, setEmails, searchInput}) => {
     <div className="inbox-container">
       <div className="inbox-inner">
         {emails.map((message) => (
-          <InboxItem key={message.id} item={message} setEmails={setEmails}/>
+          <InboxItem key={message.id} item={message} setEmails={setEmails} handleToggleIsRead={handleToggleIsRead}/>
         ))}
       </div>
     </div>

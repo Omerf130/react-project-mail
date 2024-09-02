@@ -20,7 +20,7 @@ export const Starred = ({ emails, setEmails, searchInput }) => {
     <div className="starred-container">
       <div className="starred-inner">
         {emails.map((msg) => (
-          <StarredItem key={msg.id} item={msg} />
+          <StarredItem key={msg.id} item={msg} setEmails={setEmails}/>
         ))}
       </div>
     </div>

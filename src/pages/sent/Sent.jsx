@@ -20,7 +20,7 @@ export const Sent = ({ emails, setEmails, searchInput }) => {
     <div className="sent-container">
       <div className="sent-inner">
         {emails.map((msg) => (
-          <SentEmailItem key={msg.id} item={msg} />
+          <SentEmailItem key={msg.id} item={msg} setEmails={setEmails}/>
         ))}
       </div>
     </div>
