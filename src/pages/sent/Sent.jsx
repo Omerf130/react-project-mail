@@ -4,15 +4,23 @@ import SentEmailItem from "./components/SentEmailItem";
 import { storageService } from "../../services/async-storage.service";
 import { useLocation } from "react-router-dom";
 
-export const Sent = ({ emails, setEmails, searchInput }) => {
-  const location = useLocation()
+export const Sent = ({
+  emails,
+  setEmails,
+  searchInput,
+  handleToggleIsStarred,
+}) => {
+  const location = useLocation();
 
   useEffect(() => {
     getData();
   }, [searchInput]);
 
   const getData = async () => {
-    const data = await storageService.query("emails", 200, { status: location.pathname, text:searchInput });
+    const data = await storageService.query("emails", 200, {
+      status: location.pathname,
+      text: searchInput,
+    });
     setEmails(data);
   };
 
@@ -20,7 +28,12 @@ export const Sent = ({ emails, setEmails, searchInput }) => {
     <div className="sent-container">
       <div className="sent-inner">
         {emails.map((msg) => (
-          <SentEmailItem key={msg.id} item={msg} setEmails={setEmails}/>
+          <SentEmailItem
+            key={msg.id}
+            item={msg}
+            setEmails={setEmails}
+            handleToggleIsStarred={handleToggleIsStarred}
+          />
         ))}
       </div>
     </div>

@@ -4,23 +4,36 @@ import "./Starred.css";
 import { storageService } from "../../services/async-storage.service";
 import { useLocation } from "react-router-dom";
 
-export const Starred = ({ emails, setEmails, searchInput }) => {
-  const location = useLocation()
+export const Starred = ({
+  emails,
+  setEmails,
+  searchInput,
+  handleToggleIsStarred,
+}) => {
+  const location = useLocation();
 
   useEffect(() => {
-    getData()
-  },[searchInput])
+    getData();
+  }, [searchInput]);
 
   const getData = async () => {
-    const data = await storageService.query("emails",200,{status:location.pathname, text:searchInput});
+    const data = await storageService.query("emails", 200, {
+      status: location.pathname,
+      text: searchInput,
+    });
     setEmails(data);
-  }
+  };
 
   return (
     <div className="starred-container">
       <div className="starred-inner">
         {emails.map((msg) => (
-          <StarredItem key={msg.id} item={msg} setEmails={setEmails}/>
+          <StarredItem
+            key={msg.id}
+            item={msg}
+            setEmails={setEmails}
+            handleToggleIsStarred={handleToggleIsStarred}
+          />
         ))}
       </div>
     </div>

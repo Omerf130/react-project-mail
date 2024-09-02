@@ -9,13 +9,14 @@ import { Sent } from "./pages/sent/Sent.jsx";
 import { Starred } from "./pages/starred/Starred.jsx";
 import { Trash } from "./pages/trash/Trash.jsx";
 import { messages } from "./consts.js";
-import { save } from "./services/async-storage.service.js";
+import { save, storageService } from "./services/async-storage.service.js";
 import About from "./pages/about/About.jsx";
 import EmailPreview from "./pages/emailPreview/emailPreview.jsx";
 
 export const Main = () => {
   const [emails, setEmails] = useState(messages);
   const [searchInput, setSearchInput] = useState("");
+  console.log(emails)
 
   useEffect(() => {
     save("emails", messages);
@@ -25,6 +26,17 @@ export const Main = () => {
     const updatedList = emails.map((email) =>
       id === email.id ? { ...email, isRead: !email.isRead } : { ...email }
     );
+    setEmails(updatedList);
+  };
+
+  const handleToggleIsStarred =  async(id) => {
+    const entities = await storageService.query("emails");
+
+    const updatedList = entities.map((email) =>
+      id === email.id ? { ...email, isStarred: !email.isStarred } : { ...email }
+    );
+
+    save("emails", updatedList);//delete if have any list bugs
     setEmails(updatedList);
   };
 
@@ -45,6 +57,7 @@ export const Main = () => {
               setEmails={setEmails}
               searchInput={searchInput}
               handleToggleIsRead={handleToggleIsRead}
+              handleToggleIsStarred={handleToggleIsStarred}
             />
           ),
         },
@@ -55,6 +68,7 @@ export const Main = () => {
               emails={emails}
               setEmails={setEmails}
               searchInput={searchInput}
+              handleToggleIsStarred={handleToggleIsStarred}
             />
           ),
         },
@@ -65,6 +79,7 @@ export const Main = () => {
               emails={emails}
               setEmails={setEmails}
               searchInput={searchInput}
+              handleToggleIsStarred={handleToggleIsStarred}
             />
           ),
         },
