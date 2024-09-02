@@ -1,10 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./MainNav.css";
 import { MdOutlinePresentToAll, MdMoveToInbox } from "react-icons/md";
 import { FaTrash, FaStar, FaInfoCircle,FaHome } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
+import { storageService } from "../../services/async-storage.service";
 
-export const MainNav = () => {
+export const MainNav = ({unreadCount, setUnreadCount}) => {
+  useEffect(() => {
+    getUnreadCount();
+  },[unreadCount])
+
+  const getUnreadCount = async() => {
+    const entities = await storageService.query("emails");
+    const unreadEmails = entities.filter((entity) => !entity.isRead);
+    setUnreadCount(unreadEmails.length);
+  };
 
   return (
     <div className="main-nav-container">
@@ -15,7 +25,7 @@ export const MainNav = () => {
         }
       >
         <MdMoveToInbox />
-        <div className="item-title">Inbox</div>
+        <div className="item-title">{`Inbox ${unreadCount}`}</div>
       </NavLink>
       <NavLink
         to="/react-project-mail/sent"

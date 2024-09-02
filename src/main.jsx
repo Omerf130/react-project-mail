@@ -16,34 +16,43 @@ import EmailPreview from "./pages/emailPreview/emailPreview.jsx";
 export const Main = () => {
   const [emails, setEmails] = useState(messages);
   const [searchInput, setSearchInput] = useState("");
-  console.log(emails)
+  const [unreadCount, setUnreadCount] = useState(0);
+  // console.log(emails)
 
   useEffect(() => {
     save("emails", messages);
   }, []);
 
-  const handleToggleIsRead = (id) => {
+  const handleToggleIsRead = async(id) => {
+    const entities = await storageService.query("emails");
     const updatedList = emails.map((email) =>
       id === email.id ? { ...email, isRead: !email.isRead } : { ...email }
     );
     setEmails(updatedList);
+
+    const updatedFullList = entities.map((email) =>
+      id === email.id ? { ...email, isRead: !email.isRead } : { ...email }
+    );
+    const unReadCount = updatedFullList.filter((item) => !item.isRead).length;
+    setUnreadCount(unReadCount);
+    save("emails", updatedFullList);
   };
 
   const handleToggleIsStarred =  async(id) => {
     const entities = await storageService.query("emails");
 
-    const updatedList = entities.map((email) =>
+    const updatedFullList = entities.map((email) =>
       id === email.id ? { ...email, isStarred: !email.isStarred } : { ...email }
     );
 
-    save("emails", updatedList);//delete if have any list bugs
-    setEmails(updatedList);
+    save("emails", updatedFullList);//delete if have any list bugs
+    setEmails(updatedFullList);
   };
 
   const router = createBrowserRouter([
     {
       path: "/react-project-mail/",
-      element: <App setSearchInput={setSearchInput} />,
+      element: <App setSearchInput={setSearchInput} unreadCount={unreadCount} setUnreadCount={setUnreadCount} />,
       children: [
         {
           path: "/react-project-mail/",
@@ -58,6 +67,7 @@ export const Main = () => {
               searchInput={searchInput}
               handleToggleIsRead={handleToggleIsRead}
               handleToggleIsStarred={handleToggleIsStarred}
+              setUnreadCount={setUnreadCount}
             />
           ),
         },

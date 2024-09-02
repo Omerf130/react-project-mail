@@ -5,7 +5,7 @@ import { handleGetDate } from "../../../services/util.service";
 import { useLocation, useNavigate } from "react-router-dom";
 import { storageService } from "../../../services/async-storage.service";
 
-const InboxItem = ({ item, setEmails, handleToggleIsRead, handleToggleIsStarred }) => {
+const InboxItem = ({ item, setEmails, handleToggleIsRead, handleToggleIsStarred, setUnreadCount }) => {
   const classes = `inbox-item ${item.isRead ? "read" : ""}`;
   const navigate = useNavigate();
   const location = useLocation();
@@ -16,7 +16,14 @@ const InboxItem = ({ item, setEmails, handleToggleIsRead, handleToggleIsStarred 
       status: location.pathname,
       text: "",
     });
+    await setUnreadCountHandler();
     setEmails(data);
+  };
+
+  const setUnreadCountHandler = async() => {
+    const entities = await storageService.query("emails");
+    const unreadEmails = entities.filter((entity) => !entity.isRead);
+    setUnreadCount(unreadEmails.length);
   };
 
   return (

@@ -10,6 +10,7 @@ export const Inbox = ({
   searchInput,
   handleToggleIsRead,
   handleToggleIsStarred,
+  setUnreadCount
 }) => {
   const location = useLocation();
   useEffect(() => {
@@ -34,6 +35,7 @@ export const Inbox = ({
             setEmails={setEmails}
             handleToggleIsRead={handleToggleIsRead}
             handleToggleIsStarred={handleToggleIsStarred}
+            setUnreadCount={setUnreadCount}
           />
         ))}
       </div>
