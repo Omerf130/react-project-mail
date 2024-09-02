@@ -6,7 +6,6 @@ import { useLocation } from "react-router-dom";
 
 export const Inbox = ({emails, setEmails, searchInput}) => {
   const location = useLocation()
-
   useEffect(() => {
     getData()
   },[searchInput])
