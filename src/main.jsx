@@ -17,11 +17,16 @@ export const Main = () => {
   const [emails, setEmails] = useState(messages);
   const [searchInput, setSearchInput] = useState("");
   const [unreadCount, setUnreadCount] = useState(0);
-  // console.log(emails)
 
   useEffect(() => {
     save("emails", messages);
   }, []);
+
+  const composeEmail = (data) => {
+    const updatedList = [...emails, data];
+    setEmails(updatedList);
+    save("emails", updatedList);
+  }
 
   const handleToggleIsRead = async (id) => {
     const updatedList = emails.map((email) =>
@@ -60,6 +65,7 @@ export const Main = () => {
           setSearchInput={setSearchInput}
           unreadCount={unreadCount}
           setUnreadCount={setUnreadCount}
+          composeEmail={composeEmail}
         />
       ),
       children: [

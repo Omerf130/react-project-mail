@@ -56,6 +56,91 @@
 .search-text {
   font-size: 18px;
   background-color: transparent;
-  border:none;
+  border: none;
   outline: none;
+}
+
+/* modal */
+
+.modal-container {
+  position: fixed;
+  top: 150px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #f4f4f4;
+  padding: 10px 30px;
+  border-radius: 5px;
+  border: 2px solid rgb(54, 189, 186);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.modal-top {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #999;
+  padding-bottom: 5px;
+}
+
+.modal-close-btn {
+  cursor: pointer;
+  font-size: 20px;
+  transition: all 0.5s ease;
+}
+
+.modal-close-btn:hover {
+  transform: rotate(360deg);
+}
+
+.modal-to,
+.modal-subject,
+.modal-body {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  border-bottom: 1px solid #999;
+  padding-bottom: 5px;
+}
+
+.modal-container input {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  width: 80%;
+}
+
+div[data-lastpass-icon-root] {
+  display: none;
+}
+
+.modal-body {
+  border-bottom: 0;
+}
+
+.modal-subject {
+}
+
+.modal-body textarea {
+  background-color: transparent;
+  outline: none;
+}
+
+.modal-bottom {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.modal-bottom input {
+  background-color: rgb(54, 189, 186);
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #fff;
+  font-weight: bold;
+  width: 25%;
 }
