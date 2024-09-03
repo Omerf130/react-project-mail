@@ -23,13 +23,13 @@ export const Main = () => {
     save("emails", messages);
   }, []);
 
-  const handleToggleIsRead = async(id) => {
-    const entities = await storageService.query("emails");
+  const handleToggleIsRead = async (id) => {
     const updatedList = emails.map((email) =>
-      id === email.id ? { ...email, isRead: !email.isRead } : { ...email }
+      id === email.id ? { ...email, isStarred: !email.isRead } : { ...email }
     );
     setEmails(updatedList);
 
+    const entities = await storageService.query("emails");
     const updatedFullList = entities.map((email) =>
       id === email.id ? { ...email, isRead: !email.isRead } : { ...email }
     );
@@ -38,21 +38,30 @@ export const Main = () => {
     save("emails", updatedFullList);
   };
 
-  const handleToggleIsStarred =  async(id) => {
-    const entities = await storageService.query("emails");
+  const handleToggleIsStarred = async (id) => {
+    const updatedList = emails.map((email) =>
+      id === email.id ? { ...email, isStarred: !email.isStarred } : { ...email }
+    );
+    setEmails(updatedList);
 
+    const entities = await storageService.query("emails");
     const updatedFullList = entities.map((email) =>
       id === email.id ? { ...email, isStarred: !email.isStarred } : { ...email }
     );
 
-    save("emails", updatedFullList);//delete if have any list bugs
-    setEmails(updatedFullList);
+    save("emails", updatedFullList);
   };
 
   const router = createBrowserRouter([
     {
       path: "/react-project-mail/",
-      element: <App setSearchInput={setSearchInput} unreadCount={unreadCount} setUnreadCount={setUnreadCount} />,
+      element: (
+        <App
+          setSearchInput={setSearchInput}
+          unreadCount={unreadCount}
+          setUnreadCount={setUnreadCount}
+        />
+      ),
       children: [
         {
           path: "/react-project-mail/",

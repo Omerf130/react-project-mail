@@ -25,10 +25,6 @@
   background-color: #77777726;
 }
 
-.trash-item.read {
-  font-weight: bold;
-}
-
 .trash-item-icon {
   flex: 1;
 }

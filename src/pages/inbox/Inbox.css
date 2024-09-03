@@ -14,9 +14,10 @@
 .inbox-item {
   display: flex;
   align-items: center;
+  font-weight: bold;
   gap: 10px;
-  padding: 8px 0;
-  border-bottom: 2px solid #777;
+  padding: 4px 0;
+  border-bottom: 3px solid #777;
   cursor: pointer;
   transition: all 0.25s ease;
 }
@@ -26,7 +27,7 @@
 }
 
 .inbox-item.read {
-  font-weight: bold;
+  font-weight: normal;
 }
 
 .inbox-item-icon {

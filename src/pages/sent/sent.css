@@ -19,14 +19,11 @@
   border-bottom: 2px solid #777;
   cursor: pointer;
   transition: all 0.25s ease;
+  font-weight: normal;
 }
 
 .sent-item:hover {
   background-color: #77777726;
-}
-
-.sent-item.read {
-  font-weight: bold;
 }
 
 .sent-item-icon {
