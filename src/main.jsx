@@ -89,6 +89,7 @@ export const Main = () => {
           setUnreadCount={setUnreadCount}
           composeEmail={composeEmail}
           notification={notification}
+          setDrafts={setDrafts}
         />
       ),
       children: [

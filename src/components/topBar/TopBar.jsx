@@ -1,39 +1,93 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import "./TopBar.css";
 import { FaSearch } from "react-icons/fa";
 import { TbPencilExclamation } from "react-icons/tb";
 import { IoMdCloseCircleOutline } from "react-icons/io";
 import { utilService } from "../../services/util.service";
+import { storageService } from "../../services/async-storage.service";
 
-export const TopBar = ({ setSearchInput, composeEmail }) => {
+export const TopBar = ({ setSearchInput, composeEmail, setDrafts }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [toInput, setToInput] = useState("");
-  const [subjectInput, setSubjectInput] = useState("");
-  const [bodyInput, setBodyInput] = useState("");
+
+  const toInputRef = useRef("");
+  const subjectInputRef = useRef("");
+  const bodyInputRef = useRef("");
+
+  const intervalId = useRef(null);
+  const memoIdRef = useRef(null);
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
     const newEmail = {
-      to: toInput,
-      subject: subjectInput,
-      body:bodyInput,
+      to: toInputRef.current,
+      subject: subjectInputRef.current,
+      body: bodyInputRef.current,
       from: "omer@gmail.com",
       id: utilService.makeId(),
       isRead: true,
       isStarred: false,
-      removedAt:null,
-      sentAt:  Date.now()
+      removedAt: null,
+      sentAt: Date.now(),
     };
 
     composeEmail(newEmail);
     setIsModalOpen(false);
-  }
+  };
+
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
+    memoIdRef.current = utilService.makeId();
+    memoIdRef.current = null; 
+    intervalId.current = setInterval(() => {
+      onAddDraft();
+    }, 5000);
+  };
+
+  const onModalClose = () => {
+    setIsModalOpen(false);
+    memoIdRef.current = null; 
+    clearInterval(intervalId.current);
+  };
+
+  const onAddDraft = () => {
+    const id = utilService.makeId();
+
+    const newDraft = {
+      to: toInputRef.current,
+      subject: subjectInputRef.current,
+      body: bodyInputRef.current,
+      from: "omer@gmail.com",
+      id: memoIdRef.current ? memoIdRef.current : id,
+      isRead: true,
+      isStarred: false,
+      removedAt: null,
+      sentAt: null,
+    };
+    if (!memoIdRef.current) {
+      memoIdRef.current = id;
+    }
+
+    setDrafts((prev) => {
+      if (!prev) {
+        return [newDraft];
+      } else {
+        const isDraftExist = prev.some(
+          (draft) => draft.id === memoIdRef.current
+        );
+        return isDraftExist
+          ? prev.map((draft) =>
+              draft.id === memoIdRef.current ? { ...newDraft } : draft
+            )
+          : [...prev, newDraft];
+      }
+    });
+  };
 
   return (
     <div className="top-nav-container">
       <div className="compose-wrapper">
         <TbPencilExclamation className="compose-icon" />
-        <button className="compose-text" onClick={() => setIsModalOpen(true)}>
+        <button className="compose-text" onClick={handleOpenModal}>
           Compose
         </button>
       </div>
@@ -52,7 +106,7 @@ export const TopBar = ({ setSearchInput, composeEmail }) => {
             <div className="modal-top-text">New Email:</div>
             <IoMdCloseCircleOutline
               className="modal-close-btn"
-              onClick={() => setIsModalOpen(false)}
+              onClick={onModalClose}
             />
           </div>
           <div className="modal-to">
@@ -61,7 +115,7 @@ export const TopBar = ({ setSearchInput, composeEmail }) => {
               type="text"
               placeholder="Enter Email Destination..."
               required
-              onChange={(event) => setToInput(event.target.value)}
+              onChange={(event) => (toInputRef.current = event.target.value)}
             />
           </div>
           <div className="modal-subject">
@@ -70,7 +124,7 @@ export const TopBar = ({ setSearchInput, composeEmail }) => {
               type="text"
               placeholder="Enter Email Subject..."
               required
-              onChange={(event) => setSubjectInput(event.target.value)}
+              onChange={(event) => (subjectInputRef.current = event.target.value)}
             />
           </div>
           <div className="modal-body">
@@ -79,7 +133,7 @@ export const TopBar = ({ setSearchInput, composeEmail }) => {
               rows="10"
               cols="40"
               required
-              onChange={(event) => setBodyInput(event.target.value)}
+              onChange={(event) => (bodyInputRef.current = event.target.value)}
             ></textarea>
           </div>
           <div className="modal-bottom">
