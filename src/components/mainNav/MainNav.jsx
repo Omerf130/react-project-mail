@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import "./MainNav.css";
 import { MdOutlinePresentToAll, MdMoveToInbox } from "react-icons/md";
 import { FaTrash, FaStar, FaInfoCircle,FaHome } from "react-icons/fa";
+import { RiDraftFill } from "react-icons/ri";
 import { NavLink } from "react-router-dom";
 import { storageService } from "../../services/async-storage.service";
 
@@ -18,6 +19,15 @@ export const MainNav = ({unreadCount, setUnreadCount}) => {
 
   return (
     <div className="main-nav-container">
+       <NavLink
+        to="/react-project-mail/"
+        className={({ isPending }) => 
+          isPending ? " nav-item pending" : window.location.pathname === "/react-project-mail/" ? "nav-item active" : "nav-item"
+        }
+      >
+         <FaHome />
+         <div className="item-title">Home</div>
+      </NavLink>
       <NavLink
         to="/react-project-mail/inbox"
         className={({ isActive, isPending }) =>
@@ -55,13 +65,13 @@ export const MainNav = ({unreadCount, setUnreadCount}) => {
          <div className="item-title">Trash</div>
       </NavLink>
       <NavLink
-        to="/react-project-mail/"
+        to="/react-project-mail/draft"
         className={({ isActive, isPending }) =>
           isPending ? " nav-item pending" : isActive ? "nav-item active" : "nav-item"
         }
       >
-         <FaHome />
-         <div className="item-title">Home</div>
+         <RiDraftFill />
+         <div className="item-title">Drafts</div>
       </NavLink>
       <NavLink
         to="/react-project-mail/about"
@@ -72,7 +82,6 @@ export const MainNav = ({unreadCount, setUnreadCount}) => {
          <FaInfoCircle />
          <div className="item-title">About</div>
       </NavLink>
-     
     </div>
   );
 };

@@ -12,21 +12,43 @@ import { messages } from "./consts.js";
 import { save, storageService } from "./services/async-storage.service.js";
 import About from "./pages/about/About.jsx";
 import EmailPreview from "./pages/emailPreview/emailPreview.jsx";
+import Draft from "./pages/drafts/Draft.jsx";
 
 export const Main = () => {
   const [emails, setEmails] = useState(messages);
   const [searchInput, setSearchInput] = useState("");
   const [unreadCount, setUnreadCount] = useState(0);
+  const [notification, setNotification] = useState(null);
+  const [drafts,setDrafts] = useState(null);
 
   useEffect(() => {
     save("emails", messages);
   }, []);
 
-  const composeEmail = (data) => {
-    const updatedList = [...emails, data];
-    setEmails(updatedList);
-    save("emails", updatedList);
-  }
+  const handleNotification = (note, delay) => {
+    setNotification(note);
+    setTimeout(() => {
+      setNotification(null);
+    }, delay);
+  };
+
+  const composeEmail = async (data) => {
+    try {
+      const entities = await storageService.query("emails");
+      const updatedList = [...entities, data];
+      setEmails(updatedList);
+      save("emails", updatedList);
+      handleNotification(
+        { status: "success", message: "Email composed successfully!" },
+        3000
+      );
+    } catch (error) {
+      handleNotification(
+        { status: "failed", message: "failed to compose email" },
+        3000
+      );
+    }
+  };
 
   const handleToggleIsRead = async (id) => {
     const updatedList = emails.map((email) =>
@@ -66,6 +88,7 @@ export const Main = () => {
           unreadCount={unreadCount}
           setUnreadCount={setUnreadCount}
           composeEmail={composeEmail}
+          notification={notification}
         />
       ),
       children: [
@@ -125,6 +148,10 @@ export const Main = () => {
         {
           path: "/react-project-mail/about",
           element: <About />,
+        },
+        {
+          path: "/react-project-mail/draft",
+          element: <Draft drafts={drafts}/>,
         },
       ],
     },

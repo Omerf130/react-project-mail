@@ -1,0 +1,19 @@
+.notification-wrapper {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  padding: 10px 30px;
+  background-color: #f4f4f4b0;
+  border: 2px solid #f4f4f4;
+  border-radius: 5px;
+}
+
+.success {
+  border: 2px solid rgb(54, 189, 186);
+  color: rgb(54, 189, 186);
+}
+
+.failed {
+  border: 2px solid rgb(169, 23, 23);
+  color: rgb(169, 23, 23);
+}
